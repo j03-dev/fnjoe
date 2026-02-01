@@ -69,6 +69,7 @@ pub fn Hero() -> Element {
         }
     }
 }
+
 #[component]
 fn ContactModal() -> Element {
     rsx! {
