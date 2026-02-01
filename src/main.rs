@@ -141,7 +141,11 @@ pub fn Hero() -> Element {
                         }
                     }
                     div { class: "flex justify-center md:justify-start gap-4",
-                        button { class: "btn btn-primary text-base-100",
+                        button {
+                            class: "btn btn-primary text-base-100",
+                            onclick: move |_| {
+                                document::eval("contact_modal.showModa()");
+                            },
                             Icon { icon: FaEnvelope }
                             "Contact Me"
                         }
@@ -149,6 +153,7 @@ pub fn Hero() -> Element {
                             Icon { icon: FaFilePdf }
                             "Resume"
                         }
+                        ContactModal {}
                     }
                     div { class: "flex mt-5 text-2xl text-gray-500 gap-2",
                         a {
@@ -169,6 +174,57 @@ pub fn Hero() -> Element {
                             rel: "noopener noreferrer",
                             Icon { icon: FaFacebook }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[component]
+pub fn ContactModal() -> Element {
+    rsx! {
+        dialog { id: "contact_modal", class: "modal",
+            div { class: "modal-box",
+                form {
+                    action: "https://api.web3forms.com/submit",
+                    method: "POST",
+                    class: "fieldset",
+
+                    legend { class: "fieldset-legend", "Contact" }
+
+                    input {
+                        r#type: "hidden",
+                        name: "access_key",
+                        value: "2451497f-175b-4715-b067-3cdb11550f1a",
+                    }
+
+                    label { class: "label", "Name" }
+                    input {
+                        class: "input",
+                        name: "name",
+                        placeholder: "Add your name here!",
+                    }
+
+                    label { class: "label", "Email" }
+                    input {
+                        r#type: "email",
+                        name: "email",
+                        class: "input",
+                        placeholder: "Add your email here!",
+                    }
+
+                    label { class: "label", "Message" }
+                    textarea {
+                        class: "textarea",
+                        name: "message",
+                        placeholder: "Type your message here!",
+                    }
+
+                    button {
+                        r#type: "submit",
+                        class: "btn btn-success btn-outline",
+                        "Submit"
                     }
                 }
             }
@@ -374,7 +430,6 @@ pub fn Projects() -> Element {
             vec![rsx!(Icon { icon: FaPython })],
         ),
     ];
-    
 
     rsx! {
         section { id: "projects", class: "min-h-screen bg-base-100 py-8",
@@ -404,7 +459,7 @@ pub fn ProjectCard(project: Project) -> Element {
             img { src: url }
         ),
     };
-    
+
     rsx! {
         div { class: "card bg-base-200 w-full h-full w-96 shadow-sm",
             figure { {image} }
@@ -420,8 +475,6 @@ pub fn ProjectCard(project: Project) -> Element {
         }
     }
 }
-
-
 
 #[derive(PartialEq, Clone)]
 pub enum Url {
