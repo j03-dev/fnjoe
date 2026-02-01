@@ -1,24 +1,24 @@
 use dioxus::prelude::*;
 
 use dioxus_free_icons::icons::fa_brands_icons::{FaFacebook, FaGithub, FaLinkedin};
-use dioxus_free_icons::icons::fa_regular_icons::{FaEnvelope, FaFilePdf};
+use dioxus_free_icons::icons::fa_regular_icons::{FaCircleXmark, FaEnvelope, FaFilePdf};
 use dioxus_free_icons::Icon;
 
 #[component]
 pub fn Hero() -> Element {
     rsx! {
         section { id: "hero", class: "hero bg-base-100 min-h-screen",
-            div { class: "hero-content flex-col lg:flex-row-reverse",
+            div { class: "hero-content flex-col lg:flex-row-reverse px-4 md:px-8",
                 img {
-                    class: "max-w-sm  rounded-full shadow-2xl border-2 border-primary liquid-border",
+                    class: "w-[70%] md:max-w-sm rounded-full shadow-2xl border-2 border-primary liquid-border",
                     src: asset!("/assets/image.jpeg"),
                 }
-                div { class: "mt-5 md:mt-0",
-                    h1 { class: "text-5xl text-center md:text-left font-bold",
-                        span { "FullStack" }
+                div { class: "mt-8 lg:mt-0 w-full",
+                    h1 { class: "text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left font-bold",
+                        span { "FullStack " }
                         span { class: "text-primary", "Developer" }
                     }
-                    p { class: "py-6",
+                    p { class: "py-4 md:py-6 text-sm sm:text-base text-center lg:text-left",
                         span { "Salama! I'm " }
                         b { "FITAHIANA Nomeniavo Joe " }
                         span {
@@ -29,58 +29,63 @@ pub fn Hero() -> Element {
                              as together, we shape the future of technology, one byte at a time."
                         }
                     }
-                    div { class: "flex justify-center md:justify-start gap-4",
+                    div { class: "flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mt-4",
                         button {
-                            class: "btn btn-primary text-base-100",
+                            class: "btn btn-primary text-base-100 w-full sm:w-auto",
                             onclick: move |_| {
-                                document::eval("contact_modal.showModa()");
+                                document::eval("contact_modal.showModal()");
                             },
                             Icon { icon: FaEnvelope }
                             "Contact Me"
                         }
-                        button { class: "btn btn-secondary text-base-100",
+                        button { class: "btn btn-secondary text-base-100 w-full sm:w-auto",
                             Icon { icon: FaFilePdf }
                             "Resume"
                         }
-                        ContactModal {}
                     }
-                    div { class: "flex mt-5 text-2xl text-gray-500 gap-2",
+                    div { class: "flex mt-5 text-2xl text-gray-500 gap-4 justify-center lg:justify-start",
                         a {
                             href: "https://github.com/j03-dev",
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            Icon { icon: FaGithub }
+                            Icon { icon: FaGithub, width: 28, height: 28 }
                         }
                         a {
                             href: "https://www.linkedin.com/in/nomeniavo-joe-fitahiana",
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            Icon { icon: FaLinkedin }
+                            Icon { icon: FaLinkedin, width: 28, height: 28 }
                         }
                         a {
                             href: "https://www.facebook.com/profile.php?id=100006864466268",
                             target: "_blank",
                             rel: "noopener noreferrer",
-                            Icon { icon: FaFacebook }
+                            Icon { icon: FaFacebook, width: 28, height: 28 }
                         }
                     }
+                    ContactModal {}
                 }
             }
         }
     }
 }
-
 #[component]
 fn ContactModal() -> Element {
     rsx! {
         dialog { id: "contact_modal", class: "modal",
             div { class: "modal-box",
+                form { method: "dialog",
+                    button { class: "btn btn-sm btn-circle btn-ghost absolute right-4 top-7",
+                        Icon { icon: FaCircleXmark }
+                    }
+                }
+
                 form {
                     action: "https://api.web3forms.com/submit",
                     method: "POST",
                     class: "fieldset",
 
-                    legend { class: "fieldset-legend", "Contact" }
+                    legend { class: "fieldset-legend", "Contact Me" }
 
                     input {
                         r#type: "hidden",
@@ -90,7 +95,7 @@ fn ContactModal() -> Element {
 
                     label { class: "label", "Name" }
                     input {
-                        class: "input",
+                        class: "input w-full",
                         name: "name",
                         placeholder: "Add your name here!",
                     }
@@ -99,22 +104,18 @@ fn ContactModal() -> Element {
                     input {
                         r#type: "email",
                         name: "email",
-                        class: "input",
+                        class: "input w-full",
                         placeholder: "Add your email here!",
                     }
 
                     label { class: "label", "Message" }
                     textarea {
-                        class: "textarea",
+                        class: "textarea w-full",
                         name: "message",
                         placeholder: "Type your message here!",
                     }
 
-                    button {
-                        r#type: "submit",
-                        class: "btn btn-success btn-outline",
-                        "Submit"
-                    }
+                    button { r#type: "submit", class: "btn btn-success mt-5", "Submit" }
                 }
             }
         }
