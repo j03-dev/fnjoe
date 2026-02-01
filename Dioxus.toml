@@ -2,9 +2,7 @@
 
 [web.app]
 title = "fnjoe"
-
-[web]
-base-path = "/fnjoe/"
+base-path = "fnjoe"
 debug-symbols = false
 
 [web.resource]
