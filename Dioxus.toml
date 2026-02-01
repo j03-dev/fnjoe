@@ -1,13 +1,22 @@
 [application]
 
 [web.app]
-title = "fnjoe"
-base-path = "fnjoe"
-debug-symbols = false
 
+# HTML title tag content
+title = "fnjoe"
+base_path = "fnjoe"
+
+# include `assets` in web platform
 [web.resource]
+
+# Additional CSS style files
 style = []
+
+# Additional JavaScript files
 script = []
 
 [web.resource.dev]
+
+# Javascript code file
+# serve: [dev-server] only
 script = []
