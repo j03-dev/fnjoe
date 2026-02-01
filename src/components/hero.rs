@@ -38,9 +38,11 @@ pub fn Hero() -> Element {
                             Icon { icon: FaEnvelope }
                             "Contact Me"
                         }
-                        button { class: "btn btn-secondary text-base-100 w-full sm:w-auto",
-                            Icon { icon: FaFilePdf }
-                            "Resume"
+                        a { href: "https://drive.google.com/file/d/1UjeYxf2ds2yXZP5wAVVJiX9sXGyTcntf/view?usp=drive_link",
+                            button { class: "btn btn-secondary text-base-100 w-full sm:w-auto",
+                                Icon { icon: FaFilePdf }
+                                "Resume"
+                            }
                         }
                     }
                     div { class: "flex mt-5 text-2xl text-gray-500 gap-4 justify-center lg:justify-start",
