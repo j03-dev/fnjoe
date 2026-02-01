@@ -1,0 +1,29 @@
+@keyframes liquid-border {
+
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+
+  75% {
+    border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+  }
+}
+
+.liquid-border {
+  animation: liquid-border 8s ease-in-out infinite;
+  box-shadow:
+    0 0 20px color-mix(in oklch, var(--color-primary), transparent 50%),
+    0 0 40px color-mix(in oklch, var(--color-primary), transparent 60%),
+    0 0 60px color-mix(in oklch, var(--color-primary), transparent 70%),
+    0 0 80px color-mix(in oklch, var(--color-primary), transparent 80%),
+    0 0 100px color-mix(in oklch, var(--color-primary), transparent 90%);
+}

@@ -1,0 +1,17 @@
+[package]
+name = "fnjoe"
+version = "0.1.0"
+authors = ["FITAHIANA Nomeniavo Joe <24nomeniavo@gmail.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dioxus = { version = "0.7.3", features = [] }
+dioxus-free-icons = { version = "0.10", features = ["font-awesome-brands", "font-awesome-regular"] }
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
