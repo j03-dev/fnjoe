@@ -127,8 +127,12 @@ pub fn Projects() -> Element {
 #[component]
 fn ProjectCard(project: Project) -> Element {
     let image: Element = match project.image {
-        Url::Local(asset) => rsx!(img { src: asset }),
-        Url::Remote(url) => rsx!(img { src: url }),
+        Url::Local(asset) => rsx!(
+            img { src: asset }
+        ),
+        Url::Remote(url) => rsx!(
+            img { src: url }
+        ),
     };
 
     rsx! {
@@ -172,7 +176,9 @@ impl Project {
             title,
             image,
             description,
-            techno_icons: techon_icons.iter().map(|elt| rsx!({ elt })).collect(),
+            techno_icons: techon_icons.iter().map(|elt| rsx!(
+                {elt}
+            )).collect(),
         }
     }
 }

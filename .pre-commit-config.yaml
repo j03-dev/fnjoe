@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pre-commit
+        name: format + clippy + build
+        entry: build.sh
+        language: system
+        pass_filenames: false

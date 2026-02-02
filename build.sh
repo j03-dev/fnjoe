@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env sh
+set -eu
+
+cargo fmt
+dx fmt
+cargo clippy --all-targets -- -D warnings
 
 if [ -d "docs" ]; then
     rm -rf docs

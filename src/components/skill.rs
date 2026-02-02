@@ -75,7 +75,7 @@ fn SkillCategoryCard(categorie_name: String, skills: Vec<Skill>) -> Element {
                             }
                         }
                     }
-
+                
                 }
             }
         }
@@ -97,7 +97,9 @@ impl Skill {
     ) -> Self {
         Self {
             name,
-            icon: rsx!(Icon { icon }),
+            icon: rsx!(
+                Icon { icon }
+            ),
             progress,
         }
     }
