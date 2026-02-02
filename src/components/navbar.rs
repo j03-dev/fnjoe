@@ -45,7 +45,7 @@ pub fn NavBar() -> Element {
                 ul { tabindex: "-1", class: "menu menu-horizontal px-1",
                     li {
                         a { href: "#hero", "About" }
-
+                    
                     }
                     li {
                         a { href: "#skills", "Skills" }
@@ -54,7 +54,7 @@ pub fn NavBar() -> Element {
                         a { href: "#projects", "Projects" }
                     }
                 }
-
+            
             }
             div { class: "navbar-end", ThemeController {} }
         }
@@ -63,7 +63,7 @@ pub fn NavBar() -> Element {
 
 #[component]
 fn ThemeController() -> Element {
-    let mut theme = use_signal(|| "light".to_string());
+    let mut theme = use_signal(|| "nord".to_string());
 
     use_effect(move || {
         let _ = document::eval(&format!(
@@ -79,7 +79,7 @@ fn ThemeController() -> Element {
                 value: "synthwave",
                 class: "theme-controller",
                 onclick: move |_| {
-                    let new_theme = if theme() == "light" { "dark" } else { "light" };
+                    let new_theme = if theme() == "nord" { "black" } else { "nord" };
                     theme.set(new_theme.to_string());
                 },
             }
