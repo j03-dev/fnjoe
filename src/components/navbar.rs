@@ -63,25 +63,12 @@ pub fn NavBar() -> Element {
 
 #[component]
 fn ThemeController() -> Element {
-    let mut theme = use_signal(|| "nord".to_string());
-
-    use_effect(move || {
-        let _ = document::eval(&format!(
-            r#"document.documentElement.setAttribute('data-theme', '{}')"#,
-            theme()
-        ));
-    });
-
     rsx! {
         label { class: "toggle text-primary text-2xl",
             input {
                 r#type: "checkbox",
-                value: "synthwave",
+                value: "black",
                 class: "theme-controller",
-                onclick: move |_| {
-                    let new_theme = if theme() == "nord" { "black" } else { "nord" };
-                    theme.set(new_theme.to_string());
-                },
             }
             Icon { icon: FaSun }
             Icon { icon: FaMoon }

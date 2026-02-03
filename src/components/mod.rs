@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
 
+mod footer;
 mod hero;
 mod navbar;
 mod project;
@@ -19,5 +20,6 @@ pub fn App() -> Element {
         hero::Hero {}
         skill::Skills {}
         project::Projects {}
+        footer::Footer {}
     }
 }
