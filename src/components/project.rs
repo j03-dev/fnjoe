@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
     FaBootstrap, FaCss3Alt, FaHtml5, FaJava, FaJs, FaPython, FaReact, FaRust,

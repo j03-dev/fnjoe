@@ -1,6 +1,4 @@
 use dioxus::prelude::*;
-use dioxus_free_icons::icons::fa_regular_icons::{FaMoon, FaSun};
-use dioxus_free_icons::Icon;
 
 #[component]
 pub fn NavBar() -> Element {
@@ -59,7 +57,7 @@ pub fn NavBar() -> Element {
                         a { href: "#projects", "Projects" }
                     }
                 }
-
+            
             }
             div { class: "navbar-end", ThemeController {} }
         }
@@ -67,16 +65,57 @@ pub fn NavBar() -> Element {
 }
 
 #[component]
-fn ThemeController() -> Element {
+pub fn ThemeController() -> Element {
+    let themes = ["dracula", "halloween", "garden", "forest", "lofi", "night"];
+
     rsx! {
-        label { class: "toggle text-primary text-2xl",
-            input {
-                r#type: "checkbox",
-                value: "dracula",
-                class: "theme-controller",
+        div { class: "dropdown",
+            div {
+                tabindex: "0",
+                role: "button",
+                class: "btn m-1 text-primary",
+                "Theme"
+                svg {
+                    width: "12px",
+                    height: "12px",
+                    class: "inline-block h-2 w-2 fill-current opacity-60",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    view_box: "0 0 2048 2048",
+                    path { d: "M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z" }
+                }
             }
-            Icon { icon: FaSun }
-            Icon { icon: FaMoon }
+            ul {
+                tabindex: "-1",
+                class: "dropdown-content bg-base-300 rounded-box w-52 p-2 shadow-2xl",
+                for theme in themes {
+                    ThemeItem { name: theme }
+                }
+            }
+        }
+    }
+}
+
+#[component]
+fn ThemeItem(name: &'static str) -> Element {
+    let value = name.to_lowercase();
+
+    let set_theme = |theme: &str| {
+        document::eval(&format!(
+            r#"document.documentElement.setAttribute("data-theme", "{}");"#,
+            theme
+        ));
+    };
+
+    rsx! {
+        li {
+            input {
+                r#type: "radio",
+                name: "theme-dropdown",
+                class: "theme-controller w-full btn btn-sm btn-block btn-ghost justify-start",
+                aria_label: "{name}",
+                value: "{value}",
+                onchange: move |_| set_theme(&value),
+            }
         }
     }
 }

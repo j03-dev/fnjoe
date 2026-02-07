@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
     FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaJsSquare, FaPython, FaReact, FaRust,
@@ -62,7 +60,7 @@ fn SkillCategoryCard(categorie_name: String, skills: Vec<Skill>) -> Element {
                             }
                         }
                     }
-
+                
                 }
             }
         }
@@ -84,7 +82,9 @@ impl Skill {
     ) -> Self {
         Self {
             name,
-            icon: rsx!(Icon { icon }),
+            icon: rsx!(
+                Icon { icon }
+            ),
             progress,
         }
     }
