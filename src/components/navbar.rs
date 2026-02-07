@@ -99,13 +99,6 @@ pub fn ThemeController() -> Element {
 fn ThemeItem(name: &'static str) -> Element {
     let value = name.to_lowercase();
 
-    let set_theme = |theme: &str| {
-        document::eval(&format!(
-            r#"document.documentElement.setAttribute("data-theme", "{}");"#,
-            theme
-        ));
-    };
-
     rsx! {
         li {
             input {
@@ -114,7 +107,13 @@ fn ThemeItem(name: &'static str) -> Element {
                 class: "theme-controller w-full btn btn-sm btn-block btn-ghost justify-start",
                 aria_label: "{name}",
                 value: "{value}",
-                onchange: move |_| set_theme(&value),
+                onchange: move |_| {
+                    document::eval(
+                        &format!(
+                            r#"document.documentElement.setAttribute("data-theme", "{value}");"#,
+                        ),
+                    );
+                },
             }
         }
     }
