@@ -58,8 +58,7 @@ pub fn Projects() -> Element {
             "Oxapy",
             Url::Remote("https://opengraph.githubassets.com/1/j03-dev/oxapy"),
             "Oxapy is a Python HTTP server library built in Rust, offering fast routing, middleware support, static file serving, and state management.",
-            vec![rsx!(Icon { icon: FaPython }), rsx!(Icon { icon: FaRust }),
-            ],
+            vec![rsx!(Icon { icon: FaPython }), rsx!(Icon { icon: FaRust })],
         ),
 
         Project::new(
@@ -73,8 +72,7 @@ pub fn Projects() -> Element {
             "DoYou",
             Url::Remote("https://opengraph.githubassets.com/1/j03-dev/doyou"),
             "DoYou is a Rust-based music player application focused on simplicity and performance.",
-            vec![rsx!(Icon { icon: FaRust }),
-            ],
+            vec![rsx!(Icon { icon: FaRust })],
         ),
 
         Project::new(
@@ -107,18 +105,9 @@ pub fn Projects() -> Element {
     ];
 
     rsx! {
-        section { id: "projects", class: "min-h-screen bg-base-100 py-8",
-            div { class: "text-center p-4",
-                h2 { class: "text-3xl font-bold",
-                    span { "Featured" }
-                    span { class: "text-primary", "Project" }
-                }
-                p { class: "text-gray-500 mt-2", "Discover some of my notable works and creations." }
-            }
-            div { class: "mx-auto w-full max-w-7xl grid grid-cols-1 gap-5 md:grid-cols-3 md:mt-10 md:pt-10 md:pb-10",
-                for project in projects {
-                    ProjectCard { project }
-                }
+        div { class: "mx-auto w-full max-w-7xl grid grid-cols-1 gap-5 md:grid-cols-3",
+            for project in projects {
+                ProjectCard { project }
             }
         }
     }
@@ -136,7 +125,7 @@ fn ProjectCard(project: Project) -> Element {
     };
 
     rsx! {
-        div { class: "card bg-base-200 w-full h-full w-96 shadow-sm",
+        div { class: "card bg-base-100 w-full h-full w-96 shadow-sm",
             figure { {image} }
             div { class: "card-body",
                 h2 { class: "card-title", {project.title} }

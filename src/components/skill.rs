@@ -2,7 +2,7 @@
 
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
-    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaHtml5, FaJava, FaJsSquare, FaPython, FaRust,
+    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaJsSquare, FaPython, FaReact, FaRust,
 };
 use dioxus_free_icons::{Icon, IconShape};
 
@@ -10,7 +10,7 @@ use dioxus_free_icons::{Icon, IconShape};
 pub fn Skills() -> Element {
     let frontend_skills = vec![
         Skill::new("Angular", FaAngular, 85),
-        Skill::new("HTML5", FaHtml5, 90),
+        Skill::new("HTML5", FaReact, 80),
         Skill::new("CSS3", FaCss3Alt, 85),
         Skill::new("TypeScript", FaJsSquare, 80),
     ];
@@ -28,25 +28,12 @@ pub fn Skills() -> Element {
     ];
 
     rsx! {
-        div { id: "skills", class: "min-h-screen bg-base-200 py-8",
-            div { class: "container mx-auto p-4",
-                div { class: "text-center p-4",
-                    h2 { class: "text-3xl font-bold",
-                        span { "Technical" }
-                        span { class: "text-primary", "Skill" }
-                    }
-                    p { class: "text-gray-500 mt-2",
-                        "A showcase of my technical proficiencies and expertise."
-                    }
-                }
-                div { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center pt-20",
-                    SkillCategoryCard { categorie_name: "Frontend", skills: frontend_skills }
-                    SkillCategoryCard { categorie_name: "Backend", skills: backend_skills }
-                    SkillCategoryCard {
-                        categorie_name: "Tools & DevOps",
-                        skills: tools_dev_ops_skills,
-                    }
-                }
+        div { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center",
+            SkillCategoryCard { categorie_name: "Frontend", skills: frontend_skills }
+            SkillCategoryCard { categorie_name: "Backend", skills: backend_skills }
+            SkillCategoryCard {
+                categorie_name: "Tools & DevOps",
+                skills: tools_dev_ops_skills,
             }
         }
     }
@@ -75,7 +62,7 @@ fn SkillCategoryCard(categorie_name: String, skills: Vec<Skill>) -> Element {
                             }
                         }
                     }
-                
+
                 }
             }
         }
@@ -97,9 +84,7 @@ impl Skill {
     ) -> Self {
         Self {
             name,
-            icon: rsx!(
-                Icon { icon }
-            ),
+            icon: rsx!(Icon { icon }),
             progress,
         }
     }

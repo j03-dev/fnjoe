@@ -32,6 +32,9 @@ pub fn NavBar() -> Element {
                             a { href: "#hero", "About" }
                         }
                         li {
+                            a { href: "#timeline", "Timeline" }
+                        }
+                        li {
                             a { href: "#skills", "Skills" }
                         }
                         li {
@@ -45,7 +48,9 @@ pub fn NavBar() -> Element {
                 ul { tabindex: "-1", class: "menu menu-horizontal px-1",
                     li {
                         a { href: "#hero", "About" }
-                    
+                    }
+                    li {
+                        a { href: "#timeline", "Timeline" }
                     }
                     li {
                         a { href: "#skills", "Skills" }
@@ -54,7 +59,7 @@ pub fn NavBar() -> Element {
                         a { href: "#projects", "Projects" }
                     }
                 }
-            
+
             }
             div { class: "navbar-end", ThemeController {} }
         }
@@ -67,7 +72,7 @@ fn ThemeController() -> Element {
         label { class: "toggle text-primary text-2xl",
             input {
                 r#type: "checkbox",
-                value: "black",
+                value: "dracula",
                 class: "theme-controller",
             }
             Icon { icon: FaSun }

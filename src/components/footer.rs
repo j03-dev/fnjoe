@@ -7,7 +7,7 @@ use dioxus_free_icons::{
 #[component]
 pub fn Footer() -> Element {
     rsx! {
-        footer { class: "footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10",
+        footer { class: "footer footer-horizontal footer-center bg-base-100 text-base-content rounded p-10",
             nav { class: "grid grid-flow-col gap-4",
                 a { class: "link link-hover", href: "#about", "About" }
                 a { class: "link link-hover", href: "#skills", "Skills" }
