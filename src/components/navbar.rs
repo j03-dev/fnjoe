@@ -57,7 +57,6 @@ pub fn NavBar() -> Element {
                         a { href: "#projects", "Projects" }
                     }
                 }
-            
             }
             div { class: "navbar-end", ThemeController {} }
         }
@@ -86,7 +85,7 @@ pub fn ThemeController() -> Element {
             }
             ul {
                 tabindex: "-1",
-                class: "dropdown-content bg-base-300 rounded-box w-52 p-2 shadow-2xl",
+                class: "dropdown-content bg-base-300 rounded-box w-26 p-2 shadow-2xl",
                 for theme in themes {
                     ThemeItem { name: theme }
                 }

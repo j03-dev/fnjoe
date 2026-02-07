@@ -34,7 +34,7 @@ pub fn Projects() -> Element {
         Project::new(
             "Joe's blog",
            Url::Local(asset!("/assets/project/project_4.png")),
-            "Joe's blog is a dynamic platform built with my custom Oxapy library, offering fast routing and middleware support, and powered by Django's templates for sharing tech insights and personal experiences.",
+            "Joe's blog is a dynamic platform built with my custom Oxapy library, offering fast routing and middleware support, and powered by Jinja for sharing tech insights and personal experiences.",
             vec![rsx!(Icon { icon: FaPython }), rsx!(Icon { icon: FaHtml5 }), rsx!(Icon { icon: FaBootstrap})],
         ),
 
@@ -157,15 +157,13 @@ impl Project {
         title: &'static str,
         image: Url,
         description: &'static str,
-        techon_icons: Vec<Element>,
+        techno_icons: Vec<Element>,
     ) -> Self {
         Self {
             title,
             image,
             description,
-            techno_icons: techon_icons.iter().map(|elt| rsx!(
-                {elt}
-            )).collect(),
+            techno_icons
         }
     }
 }

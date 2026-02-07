@@ -1,16 +1,15 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
-    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaJsSquare, FaPython, FaReact, FaRust,
+    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaLinux, FaPython, FaReact, FaRust
 };
 use dioxus_free_icons::{Icon, IconShape};
 
 #[component]
 pub fn Skills() -> Element {
     let frontend_skills = vec![
-        Skill::new("Angular", FaAngular, 85),
-        Skill::new("HTML5", FaReact, 80),
-        Skill::new("CSS3", FaCss3Alt, 85),
-        Skill::new("TypeScript", FaJsSquare, 80),
+        Skill::new("React/Next", FaReact, 85),
+        Skill::new("Angular", FaAngular, 75),
+        Skill::new("Tailwindcss", FaCss3Alt, 80),
     ];
 
     let backend_skills = vec![
@@ -23,6 +22,7 @@ pub fn Skills() -> Element {
     let tools_dev_ops_skills = vec![
         Skill::new("Git", FaGitAlt, 90),
         Skill::new("Docker", FaDocker, 70),
+        Skill::new("Linux", FaLinux, 80),
     ];
 
     rsx! {
