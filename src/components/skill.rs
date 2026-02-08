@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
-    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaLinux, FaPython, FaReact, FaRust
+    FaAngular, FaCss3Alt, FaDocker, FaGitAlt, FaJava, FaLinux, FaPython, FaReact, FaRust,
 };
 use dioxus_free_icons::{Icon, IconShape};
 

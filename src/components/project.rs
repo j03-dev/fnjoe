@@ -163,7 +163,7 @@ impl Project {
             title,
             image,
             description,
-            techno_icons
+            techno_icons,
         }
     }
 }
