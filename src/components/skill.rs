@@ -27,22 +27,19 @@ pub fn Skills() -> Element {
 
     rsx! {
         div { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center",
-            SkillCategoryCard { categorie_name: "Frontend", skills: frontend_skills }
-            SkillCategoryCard { categorie_name: "Backend", skills: backend_skills }
-            SkillCategoryCard {
-                categorie_name: "Tools & DevOps",
-                skills: tools_dev_ops_skills,
-            }
+            SkillCategoryCard { category_name: "Frontend", skills: frontend_skills }
+            SkillCategoryCard { category_name: "Backend", skills: backend_skills }
+            SkillCategoryCard { category_name: "Tools & DevOps", skills: tools_dev_ops_skills }
         }
     }
 }
 
 #[component]
-fn SkillCategoryCard(categorie_name: String, skills: Vec<Skill>) -> Element {
+fn SkillCategoryCard(category_name: String, skills: Vec<Skill>) -> Element {
     rsx! {
         div { class: "card bg-base-200 shadow-xl m-4",
             div { class: "card-body",
-                h3 { class: "card-title text-2xl mb-4", {categorie_name} }
+                h3 { class: "card-title text-2xl mb-4", {category_name} }
                 div { class: "space-y-4 justify-center",
                     for skill in skills {
                         div { class: "flex items-center space-x-4",

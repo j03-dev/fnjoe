@@ -39,10 +39,10 @@ pub fn Timelines() -> Element {
         div { class: "flex-1 flex items-center justify-center mx-5 md:mx-0",
             ul { class: "timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl",
                 for (i , timeline) in timelines.into_iter().enumerate() {
-                    if i % 2 != 0 {
-                        TimelineElement { timeline, pos: Pos::Start }
+                    if i % 2 == 0 {
+                        TimelineItem { timeline, pos: Pos::Start }
                     } else {
-                        TimelineElement { timeline, pos: Pos::End }
+                        TimelineItem { timeline, pos: Pos::End }
                     }
                 }
             }
@@ -51,7 +51,7 @@ pub fn Timelines() -> Element {
 }
 
 #[component]
-fn TimelineElement(timeline: Timeline, pos: Pos) -> Element {
+fn TimelineItem(timeline: Timeline, pos: Pos) -> Element {
     rsx! {
         li {
             div { class: "timeline-middle",

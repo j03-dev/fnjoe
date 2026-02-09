@@ -64,8 +64,8 @@ pub fn NavBar() -> Element {
 }
 
 #[component]
-pub fn ThemeController() -> Element {
-    let themes = ["dracula", "halloween", "garden", "forest", "lofi", "night"];
+fn ThemeController() -> Element {
+    let themes = ["Dracula", "Halloween", "Garden", "Forest", "Lofi", "Night"];
 
     rsx! {
         div { class: "dropdown",

@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use dioxus_free_icons::icons::fa_brands_icons::{FaFacebook, FaGithub, FaLinkedin};
-use dioxus_free_icons::icons::fa_regular_icons::{FaCircleXmark, FaEnvelope, FaFilePdf};
+use dioxus_free_icons::icons::fa_regular_icons::{FaCircleDown, FaCircleXmark, FaEnvelope};
 use dioxus_free_icons::Icon;
 
 #[component]
@@ -15,19 +15,17 @@ pub fn Hero() -> Element {
                 }
                 div { class: "mt-8 lg:mt-0 w-full",
                     h1 { class: "text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left font-bold",
-                        span { "FullStack " }
+                        "FullStack "
                         span { class: "text-primary", "Developer" }
                     }
                     p { class: "py-4 md:py-6 text-sm sm:text-base text-center lg:text-left",
-                        span { "Salama! I'm " }
+                        "Salama! I'm "
                         b { "FITAHIANA Nomeniavo Joe " }
-                        span {
-                            "a Fullstack Developer originating from the vibrant island of Madagascar.
-                             With a fervent passion for technology, I navigate the digital realm with ease,
-                             sculpting solutions with lines of code. I am committed to streamlining the intricacies of digital communication.
-                             Join me on this exhilarating journey where innovation converges with code,
-                             as together, we shape the future of technology, one byte at a time."
-                        }
+                        "a Fullstack Developer originating from the vibrant island of Madagascar.
+                         With a fervent passion for technology, I navigate the digital realm with ease,
+                         sculpting solutions with lines of code. I am committed to streamlining the intricacies of digital communication.
+                         Join me on this exhilarating journey where innovation converges with code,
+                         as together, we shape the future of technology, one byte at a time."
                     }
                     div { class: "flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mt-4",
                         button {
@@ -40,7 +38,7 @@ pub fn Hero() -> Element {
                         }
                         a { href: "https://drive.google.com/file/d/1UjeYxf2ds2yXZP5wAVVJiX9sXGyTcntf/view?usp=drive_link",
                             button { class: "btn btn-secondary text-base-100 w-full sm:w-auto",
-                                Icon { icon: FaFilePdf }
+                                Icon { icon: FaCircleDown }
                                 "Resume"
                             }
                         }

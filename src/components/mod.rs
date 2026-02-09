@@ -21,7 +21,7 @@ pub fn App() -> Element {
         hero::Hero {}
         SectionContainer {
             id: "timeline",
-            title: "Carrer Timeline",
+            title: "Carer Timeline",
             description: "A journey through my academic background, professional experience and open source contributions.",
             class: "bg-base-200",
             timeline::Timelines {}
@@ -58,7 +58,7 @@ fn SectionContainer(
                 h2 { class: "text-3xl font-bold",
                     for (i , t) in title.split(" ").enumerate() {
                         if i == 0 {
-                            span { "{t} " }
+                            "{t} "
                         } else {
                             span { class: "text-primary", {t} }
                         }
