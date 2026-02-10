@@ -17,6 +17,33 @@ pub fn Timelines() -> Element {
     }
 }
 
+#[component]
+fn TimelineItem(timeline: &'static Timeline, pos: Pos) -> Element {
+    rsx! {
+        li {
+            div { class: "timeline-middle",
+                svg {
+                    xmlns: "https://www.w3.org/2000/svg",
+                    view_box: "0 0 20 20",
+                    fill: "currentColor",
+                    class: "h-5 w-5",
+                    path {
+                        fill_rule: "evenodd",
+                        d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z",
+                        clip_rule: "evenodd",
+                    }
+                }
+            }
+            div { class: "{pos}",
+                time { class: "font-mono italic font-bold", {timeline.time} }
+                div { class: "text-lg font-black text-secondary", {timeline.title} }
+                {timeline.description}
+            }
+            hr {}
+        }
+    }
+}
+
 const TIMELINES: &[Timeline] = &[
     Timeline {
         time: "2019",
@@ -49,33 +76,6 @@ const TIMELINES: &[Timeline] = &[
         description: "Currently building SaaS products, AI integrations, mobile applications with Flutter, and developer tooling using Rust, Python and Dioxus.",
     }
 ];
-
-#[component]
-fn TimelineItem(timeline: &'static Timeline, pos: Pos) -> Element {
-    rsx! {
-        li {
-            div { class: "timeline-middle",
-                svg {
-                    xmlns: "https://www.w3.org/2000/svg",
-                    view_box: "0 0 20 20",
-                    fill: "currentColor",
-                    class: "h-5 w-5",
-                    path {
-                        fill_rule: "evenodd",
-                        d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z",
-                        clip_rule: "evenodd",
-                    }
-                }
-            }
-            div { class: "{pos}",
-                time { class: "font-mono italic font-bold", {timeline.time} }
-                div { class: "text-lg font-black text-secondary", {timeline.title} }
-                {timeline.description}
-            }
-            hr {}
-        }
-    }
-}
 
 #[derive(Clone, PartialEq)]
 struct Timeline {
