@@ -4,7 +4,6 @@
 
 # HTML title tag content
 title = "fnjoe"
-base_path = "fnjoe"
 
 # include `assets` in web platform
 [web.resource]

@@ -5,7 +5,7 @@ pub fn Timelines() -> Element {
     rsx! {
         div { class: "flex-1 flex items-center justify-center mx-5 md:mx-0",
             ul { class: "timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full max-w-4xl",
-                for (i , timeline) in TIMELINES.into_iter().enumerate() {
+                for (i , timeline) in TIMELINES.iter().enumerate() {
                     if i % 2 == 0 {
                         TimelineItem { timeline, pos: Pos::Start }
                     } else {
