@@ -105,10 +105,7 @@ fn ProjectCard(project: Project) -> Element {
     rsx! {
         div { class: "card bg-base-100 w-full h-full w-96 shadow-sm",
             figure {
-                img {
-                    src: "{project.image}",
-                    alt: project.title,
-                }
+                img { src: "{project.image}", alt: project.title }
             }
             div { class: "card-body",
                 h2 { class: "card-title", {project.title} }
