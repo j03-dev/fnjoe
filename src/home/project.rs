@@ -106,10 +106,7 @@ fn ProjectCard(project: Project) -> Element {
         div { class: "card bg-base-100 w-full h-full w-96 shadow-sm",
             figure {
                 img {
-                    src: match project.image {
-                        Url::Local(a) => a.to_string(),
-                        Url::Remote(u) => u.to_string(),
-                    },
+                    src: "{project.image}",
                     alt: project.title,
                 }
             }
@@ -130,6 +127,16 @@ fn ProjectCard(project: Project) -> Element {
 enum Url {
     Local(Asset),
     Remote(&'static str),
+}
+
+impl std::fmt::Display for Url {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let asset = match self {
+            Url::Local(a) => a.to_string(),
+            Url::Remote(u) => u.to_string(),
+        };
+        write!(f, "{}", asset)
+    }
 }
 
 #[derive(PartialEq, Clone)]

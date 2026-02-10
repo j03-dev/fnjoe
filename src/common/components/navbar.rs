@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 #[component]
 pub fn NavBar() -> Element {
     rsx! {
-        nav { class: "navbar bg-base-100 shadow-sm text-primary",
+        nav { class: "navbar bg-base-200 shadow-sm",
             div { class: "navbar-start",
                 div { class: "dropdown",
                     div {
@@ -40,7 +40,10 @@ pub fn NavBar() -> Element {
                         }
                     }
                 }
-                a { class: "btn btn-ghost text-xl", "FN.JOE" }
+                a { class: "btn btn-ghost text-xl",
+                    "FN."
+                    span { class: "text-primary", "JOE" }
+                }
             }
             div { class: "navbar-center  hidden lg:flex",
                 ul { tabindex: "-1", class: "menu menu-horizontal px-1",
@@ -65,14 +68,11 @@ pub fn NavBar() -> Element {
 
 #[component]
 fn ThemeController() -> Element {
-    let themes = ["Dracula", "Halloween", "Garden", "Forest", "Lofi", "Night"];
+    let themes = ["Night", "Dracula", "Halloween", "Garden", "Forest", "Lofi"];
 
     rsx! {
         div { class: "dropdown",
-            div {
-                tabindex: "0",
-                role: "button",
-                class: "btn m-1 text-primary",
+            div { tabindex: "0", role: "button", class: "btn btn-primary m-1",
                 "Theme"
                 svg {
                     width: "12px",
