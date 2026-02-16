@@ -4,9 +4,12 @@ use dioxus_free_icons::icons::fa_brands_icons::{
 };
 use dioxus_free_icons::Icon;
 
-const TISH: Asset = asset!("/assets/project/project_2.png");
-const SLATE: Asset = asset!("/assets/project/project_3.png");
-const BLOG: Asset = asset!("/assets/project/project_4.png");
+const TISH: Asset = asset!("/assets/project/tish.png");
+const SLATE: Asset = asset!("/assets/project/slate.png");
+const BLOG: Asset = asset!("/assets/project/joesblog.png");
+const DOYOU: Asset = asset!("/assets/project/doyou.png");
+const TIMETABLE: Asset = asset!("/assets/project/timetable.png");
+const OSAS: Asset = asset!("/assets/project/osas.png");
 
 #[component]
 pub fn Projects() -> Element {
@@ -29,7 +32,11 @@ fn ProjectCard(project: &'static Project) -> Element {
     rsx! {
         div { class: "card bg-base-100 shadow-sm h-full",
             figure {
-                img { src: image_src, alt: project.title }
+                img {
+                    src: image_src,
+                    alt: project.title,
+                    class: "max-h-42 w-full",
+                }
             }
 
             div { class: "card-body",
@@ -79,6 +86,12 @@ impl Tech {
 
 static PROJECTS: &[Project] = &[
     Project {
+        title: "DoYou",
+        image: ImageSource::Local(DOYOU),
+        description: "DoYou is Youtube Music alternative built-in Rust with Dioxus.",
+        tech: &[Tech::Rust],
+    },
+    Project {
         title: "Tish",
         image: ImageSource::Local(TISH),
         description: "Tish is an e-commerce website dedicated to fashion, built with Java Enterprise Edition (JEE), JSP, and Servlet technologies.",
@@ -95,6 +108,18 @@ static PROJECTS: &[Project] = &[
         image: ImageSource::Local(BLOG),
         description: "Joe's blog is a dynamic platform built with my custom Oxapy library, offering fast routing and middleware support, and powered by Jinja for sharing tech insights and personal experiences.",
         tech: &[Tech::Python, Tech::Html, Tech::Bootstrap],
+    },
+    Project {
+        title: "TimeTable",
+        image: ImageSource::Local(TIMETABLE),
+        description: "TimeTable is a CLI tool helping educational institutions create balanced timetables with constraint-based scheduling.",
+        tech: &[Tech::Python],
+    },
+    Project {
+        title: "Osas-Player",
+        image: ImageSource::Local(OSAS),
+        description: "Osas-Player is a Python audio player built with Tkinter, offering a user-friendly GUI for playback.",
+        tech: &[Tech::Python],
     },
     Project {
         title: "Metatype",
@@ -121,12 +146,6 @@ static PROJECTS: &[Project] = &[
         tech: &[Tech::Rust],
     },
     Project {
-        title: "DoYou",
-        image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/doyou"),
-        description: "DoYou is a Rust-based music player application focused on simplicity and performance.",
-        tech: &[Tech::Rust],
-    },
-    Project {
         title: "System Theme",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/system-theme.hx"),
         description: "System Theme is a plugin for the Helix editor that auto-switches between light and dark themes.",
@@ -136,18 +155,6 @@ static PROJECTS: &[Project] = &[
         title: "Antsirabe Bus API",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/bus_antsirabe_api"),
         description: "Antsirabe Bus API is a REST API offering real-time bus schedule data for Antsirabe, built with Rust and Python.",
-        tech: &[Tech::Python],
-    },
-    Project {
-        title: "TimeTable",
-        image: ImageSource::Remote("https://opengraph.githubassets.com/1/tbgracy/timetable"),
-        description: "TimeTable is a CLI tool helping educational institutions create balanced timetables with constraint-based scheduling.",
-        tech: &[Tech::Python],
-    },
-    Project {
-        title: "Osas-Player",
-        image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/osas-player"),
-        description: "Osas-Player is a Python audio player built with Tkinter, offering a user-friendly GUI for playback.",
         tech: &[Tech::Python],
     },
 ];

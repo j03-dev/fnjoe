@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
 
+use common::components::{navbar, footer};
+
 mod common;
 mod home;
 
@@ -17,8 +19,8 @@ pub fn App() -> Element {
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
-        common::components::navbar::NavBar {}
+        navbar::NavBar {}
         home::Home {}
-        common::components::footer::Footer {}
+        footer::Footer {}
     }
 }

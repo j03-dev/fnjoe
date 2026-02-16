@@ -34,9 +34,7 @@ pub fn Home() -> Element {
                 }
                 skill::Skills {}
             }
-            section {
-                id: "projects",
-                class: "min-h-screen bg-base-200 py-5 px-5 md:px-0",
+            section { id: "projects", class: "min-h-screen bg-base-200 py-5 px-5",
                 div { class: "text-center mb-10",
                     h2 { class: "text-3xl font-bold",
                         "Featured "
