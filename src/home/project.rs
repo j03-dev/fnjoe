@@ -24,16 +24,11 @@ pub fn Projects() -> Element {
 
 #[component]
 fn ProjectCard(project: &'static Project) -> Element {
-    let image_src = match project.image {
-        ImageSource::Local(asset) => asset.to_string(),
-        ImageSource::Remote(url) => url.to_string(),
-    };
-
     rsx! {
         div { class: "card bg-base-100 shadow-sm h-full",
             figure {
                 img {
-                    src: image_src,
+                    src: "{project.image}",
                     alt: project.title,
                     class: "max-h-42 w-full",
                 }
@@ -175,6 +170,16 @@ pub enum Tech {
 pub enum ImageSource {
     Local(Asset),
     Remote(&'static str),
+}
+
+impl std::fmt::Display for ImageSource {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let src = match self {
+            ImageSource::Local(asset) => asset.to_string(),
+            ImageSource::Remote(url) => url.to_string(),
+        };
+        write!(f, "{}", src )
+    }
 }
 
 #[derive(Clone, PartialEq)]
