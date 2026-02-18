@@ -55,13 +55,27 @@ fn ProjectCard(project: &'static Project) -> Element {
 impl Tech {
     fn icon(&self) -> Element {
         match self {
-            Tech::Java => rsx!(Icon { icon: FaJava }),
-            Tech::Html => rsx!(Icon { icon: FaHtml5 }),
-            Tech::Js => rsx!(Icon { icon: FaJs }),
-            Tech::Css => rsx!(Icon { icon: FaCss3Alt }),
-            Tech::Python => rsx!(Icon { icon: FaPython }),
-            Tech::React => rsx!(Icon { icon: FaReact }),
-            Tech::Rust => rsx!(Icon { icon: FaRust }),
+            Tech::Java => rsx!(
+                Icon { icon: FaJava }
+            ),
+            Tech::Html => rsx!(
+                Icon { icon: FaHtml5 }
+            ),
+            Tech::Js => rsx!(
+                Icon { icon: FaJs }
+            ),
+            Tech::Css => rsx!(
+                Icon { icon: FaCss3Alt }
+            ),
+            Tech::Python => rsx!(
+                Icon { icon: FaPython }
+            ),
+            Tech::React => rsx!(
+                Icon { icon: FaReact }
+            ),
+            Tech::Rust => rsx!(
+                Icon { icon: FaRust }
+            ),
         }
     }
 }
