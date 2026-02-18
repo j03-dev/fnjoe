@@ -11,6 +11,7 @@ pub fn Hero() -> Element {
             img {
                 class: "w-[70%] md:max-w-sm rounded-full shadow-2xl border-2 border-primary liquid-border",
                 src: asset!("/assets/image.jpeg"),
+                loading: "lazy",
             }
             div { class: "mt-8 lg:mt-0 w-full",
                 h1 { class: "text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left font-bold",

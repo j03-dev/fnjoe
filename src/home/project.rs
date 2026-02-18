@@ -31,6 +31,7 @@ fn ProjectCard(project: &'static Project) -> Element {
                     src: "{project.image}",
                     alt: project.title,
                     class: "max-h-42 w-full",
+                    loading: "lazy",
                 }
             }
 
@@ -42,7 +43,9 @@ fn ProjectCard(project: &'static Project) -> Element {
                     for tech in project.tech {
                         {tech.icon()}
                     }
-                    a { class: "btn btn-neutral link", href: project.repo,
+                    a {
+                        class: "btn btn-neutral link link-hover",
+                        href: project.repo,
                         Icon { icon: FaGithub }
                         "repo"
                     }
