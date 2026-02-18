@@ -47,33 +47,15 @@ fn SkillCategoryCard(category: &'static SkillCategory) -> Element {
 impl Skill {
     fn icon(&self) -> Element {
         match self.icon {
-            TechIcon::Angular => rsx!(
-                Icon { icon: FaAngular }
-            ),
-            TechIcon::Css => rsx!(
-                Icon { icon: FaCss3Alt }
-            ),
-            TechIcon::Docker => rsx!(
-                Icon { icon: FaDocker }
-            ),
-            TechIcon::Git => rsx!(
-                Icon { icon: FaGitAlt }
-            ),
-            TechIcon::Java => rsx!(
-                Icon { icon: FaJava }
-            ),
-            TechIcon::Linux => rsx!(
-                Icon { icon: FaLinux }
-            ),
-            TechIcon::Python => rsx!(
-                Icon { icon: FaPython }
-            ),
-            TechIcon::React => rsx!(
-                Icon { icon: FaReact }
-            ),
-            TechIcon::Rust => rsx!(
-                Icon { icon: FaRust }
-            ),
+            TechIcon::Angular => rsx!(Icon { icon: FaAngular }),
+            TechIcon::Css => rsx!(Icon { icon: FaCss3Alt }),
+            TechIcon::Docker => rsx!(Icon { icon: FaDocker }),
+            TechIcon::Git => rsx!(Icon { icon: FaGitAlt }),
+            TechIcon::Java => rsx!(Icon { icon: FaJava }),
+            TechIcon::Linux => rsx!(Icon { icon: FaLinux }),
+            TechIcon::Python => rsx!(Icon { icon: FaPython }),
+            TechIcon::React => rsx!(Icon { icon: FaReact }),
+            TechIcon::Rust => rsx!(Icon { icon: FaRust }),
         }
     }
 }

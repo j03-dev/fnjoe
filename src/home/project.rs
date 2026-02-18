@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_free_icons::icons::fa_brands_icons::{
-    FaBootstrap, FaCss3Alt, FaHtml5, FaJava, FaJs, FaPython, FaReact, FaRust,
+    FaCss3Alt, FaGithub, FaHtml5, FaJava, FaJs, FaPython, FaReact, FaRust,
 };
 use dioxus_free_icons::Icon;
 
@@ -38,9 +38,13 @@ fn ProjectCard(project: &'static Project) -> Element {
                 h2 { class: "card-title", {project.title} }
                 p { {project.description} }
 
-                div { class: "card-actions justify-end text-xl",
+                div { class: "card-actions justify-end text-xl items-center flex",
                     for tech in project.tech {
                         {tech.icon()}
+                    }
+                    a { class: "btn btn-neutral link", href: project.repo,
+                        Icon { icon: FaGithub }
+                        "repo"
                     }
                 }
             }
@@ -51,30 +55,13 @@ fn ProjectCard(project: &'static Project) -> Element {
 impl Tech {
     fn icon(&self) -> Element {
         match self {
-            Tech::Java => rsx!(
-                Icon { icon: FaJava }
-            ),
-            Tech::Html => rsx!(
-                Icon { icon: FaHtml5 }
-            ),
-            Tech::Js => rsx!(
-                Icon { icon: FaJs }
-            ),
-            Tech::Css => rsx!(
-                Icon { icon: FaCss3Alt }
-            ),
-            Tech::Python => rsx!(
-                Icon { icon: FaPython }
-            ),
-            Tech::React => rsx!(
-                Icon { icon: FaReact }
-            ),
-            Tech::Bootstrap => rsx!(
-                Icon { icon: FaBootstrap }
-            ),
-            Tech::Rust => rsx!(
-                Icon { icon: FaRust }
-            ),
+            Tech::Java => rsx!(Icon { icon: FaJava }),
+            Tech::Html => rsx!(Icon { icon: FaHtml5 }),
+            Tech::Js => rsx!(Icon { icon: FaJs }),
+            Tech::Css => rsx!(Icon { icon: FaCss3Alt }),
+            Tech::Python => rsx!(Icon { icon: FaPython }),
+            Tech::React => rsx!(Icon { icon: FaReact }),
+            Tech::Rust => rsx!(Icon { icon: FaRust }),
         }
     }
 }
@@ -85,72 +72,84 @@ static PROJECTS: &[Project] = &[
         image: ImageSource::Local(DOYOU),
         description: "DoYou is Youtube Music alternative built-in Rust with Dioxus.",
         tech: &[Tech::Rust],
+        repo: "https://github.com/j03-ev/doyou"
     },
     Project {
         title: "Tish",
         image: ImageSource::Local(TISH),
         description: "Tish is an e-commerce website dedicated to fashion, built with Java Enterprise Edition (JEE), JSP, and Servlet technologies.",
         tech: &[Tech::Java, Tech::Html, Tech::Js, Tech::Css],
+        repo: "https://github.com/tbgracy/tish"
     },
     Project {
         title: "Slate",
         image: ImageSource::Local(SLATE),
-        description: "Slate is a QA-style web app developed during a hackathon, inspired by Stack Overflow. Built with Python, HTML5, React, and Bootstrap.",
-        tech: &[Tech::Python, Tech::Html, Tech::React, Tech::Bootstrap],
+        description: "Slate is a QA-style web app developed during a hackathon, inspired by Stack Overflow. Built with Python, HTML5, React, and Css.",
+        tech: &[Tech::Python, Tech::Html, Tech::React, Tech::Css],
+        repo: "https://github.com/j03-dev/slate"
     },
     Project {
         title: "Joe's blog",
         image: ImageSource::Local(BLOG),
         description: "Joe's blog is a dynamic platform built with my custom Oxapy library, offering fast routing and middleware support, and powered by Jinja for sharing tech insights and personal experiences.",
-        tech: &[Tech::Python, Tech::Html, Tech::Bootstrap],
+        tech: &[Tech::Python, Tech::Html, Tech::Css],
+        repo: "https://github.com/j03-dev/blog"
     },
     Project {
         title: "TimeTable",
         image: ImageSource::Local(TIMETABLE),
         description: "TimeTable is a CLI tool helping educational institutions create balanced timetables with constraint-based scheduling.",
         tech: &[Tech::Python],
+        repo: "https://github.com/tbgracy/timetable"
     },
     Project {
         title: "Osas-Player",
         image: ImageSource::Local(OSAS),
         description: "Osas-Player is a Python audio player built with Tkinter, offering a user-friendly GUI for playback.",
         tech: &[Tech::Python],
+        repo: "https://github.com/j03-dev/osas"
     },
     Project {
         title: "Metatype",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/metatypedev/metatype"),
         description: "Metatype is a declarative platform for API development using WebAssembly, TypeScript, and Python for modular backend components.",
         tech: &[Tech::Python, Tech::Rust, Tech::Js],
+        repo: "https://github.com/metatypedev/metatype"
     },
     Project {
         title: "Russenger",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/russenger"),
         description: "Russenger is a Rust library to simplify Facebook Messenger webhook responses with an intuitive Rust API.",
         tech: &[Tech::Rust],
+        repo: "https://github.com/metatypedev/metatype"
     },
     Project {
         title: "Oxapy",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/oxapy"),
         description: "Oxapy is a Python HTTP server library built in Rust, offering fast routing, middleware support, static file serving, and state management.",
         tech: &[Tech::Python, Tech::Rust],
+        repo: "https://github.com/j03-dev/oxapy"
     },
     Project {
         title: "RusqlAlchemy",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/rusql-alchemy"),
         description: "RusqlAlchemy is an ORM-style Rust library inspired by Django, designed to simplify database interaction with Rust.",
         tech: &[Tech::Rust],
+        repo: "https://github.com/j03-dev/rusql-alchemy"
     },
     Project {
         title: "System Theme",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/system-theme.hx"),
         description: "System Theme is a plugin for the Helix editor that auto-switches between light and dark themes.",
         tech: &[Tech::Rust],
+        repo: "https://github.com/j03-dev/system-theme.hx"
     },
     Project {
         title: "Antsirabe Bus API",
         image: ImageSource::Remote("https://opengraph.githubassets.com/1/j03-dev/bus_antsirabe_api"),
         description: "Antsirabe Bus API is a REST API offering real-time bus schedule data for Antsirabe, built with Rust and Python.",
         tech: &[Tech::Python],
+        repo: "https://github.com/j03-dev/bus_antsirabe_api"
     },
 ];
 
@@ -162,7 +161,6 @@ pub enum Tech {
     Css,
     Python,
     React,
-    Bootstrap,
     Rust,
 }
 
@@ -178,7 +176,7 @@ impl std::fmt::Display for ImageSource {
             ImageSource::Local(asset) => asset.to_string(),
             ImageSource::Remote(url) => url.to_string(),
         };
-        write!(f, "{}", src )
+        write!(f, "{}", src)
     }
 }
 
@@ -188,4 +186,5 @@ pub struct Project {
     pub image: ImageSource,
     pub description: &'static str,
     pub tech: &'static [Tech],
+    pub repo: &'static str,
 }

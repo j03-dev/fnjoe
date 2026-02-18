@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use common::components::{navbar, footer};
+use common::components::{footer, navbar};
 
 mod common;
 mod home;
