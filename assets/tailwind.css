@@ -24,13 +24,16 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
     --font-weight-black: 900;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -1064,6 +1067,12 @@
   .static {
     position: static;
   }
+  .sticky {
+    position: sticky;
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
   .top-7 {
     top: calc(var(--spacing) * 7);
   }
@@ -1158,6 +1167,9 @@
   }
   .z-1 {
     z-index: 1;
+  }
+  .z-50 {
+    z-index: 50;
   }
   .timeline-end {
     @layer daisyui.l1.l2.l3 {
@@ -1405,6 +1417,54 @@
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
+  .text-rotate {
+    height: 1lh;
+    @layer daisyui.l1.l2.l3 {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      white-space: nowrap;
+      transition-property: none;
+      --duration: var(--tw-duration);
+      > * {
+        display: grid;
+        justify-items: start;
+        height: calc(var(--items, 1) * 100%);
+        &:has(*:nth-child(2)) {
+          --items: 2;
+          animation: rotator var(--duration, 10s) linear(0 0% 49%, 0.5 50% 99%, 1 100% 100%) infinite;
+        }
+        &:has(*:nth-child(3)) {
+          --items: 3;
+          animation: rotator var(--duration, 10s) linear(0 0% 32%, 0.333333 33% 65%, 0.666666 66% 99%, 1 100% 100%) infinite;
+        }
+        &:has(*:nth-child(4)) {
+          --items: 4;
+          animation: rotator var(--duration, 10s) linear(0 0% 24%, 0.25 25% 49%, 0.5 50% 74%, 0.75 75% 99%, 1 100% 100%) infinite;
+        }
+        &:has(*:nth-child(5)) {
+          --items: 5;
+          animation: rotator var(--duration, 10s) linear(0 0% 19%, 0.2 20% 39%, 0.4 40% 59%, 0.6 60% 79%, 0.8 80% 99%, 1 100% 100%) infinite;
+        }
+        &:has(*:nth-child(6)) {
+          --items: 6;
+          animation: rotator var(--duration, 10s) linear( 0 0% 15%, 0.16666 16% 32%, 0.333333 33% 49%, 0.5 50% 65%, 0.666666 66% 82%, 0.833333 83% 99%, 1 100% 100% ) infinite;
+        }
+        > * {
+          align-content: baseline;
+          clip-path: inset(0.5px 0px 0.5px 0px);
+          &:nth-child(1) {
+            translate: var(--first-item-position);
+          }
+        }
+      }
+      &:hover {
+        > * {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
   .footer {
     @layer daisyui.l1.l2.l3 {
       display: grid;
@@ -1619,6 +1679,9 @@
   .justify-start {
     justify-content: flex-start;
   }
+  .justify-items-center {
+    justify-items: center;
+  }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
@@ -1742,6 +1805,10 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .font-extrabold {
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+  }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
@@ -1821,6 +1888,10 @@
         }
       }
     }
+  }
+  .duration-5000 {
+    --tw-duration: 5000ms;
+    transition-duration: 5000ms;
   }
   .btn-sm {
     @layer daisyui.l1.l2 {
@@ -1916,12 +1987,6 @@
       gap: calc(var(--spacing) * 4);
     }
   }
-  .sm\:text-4xl {
-    @media (width >= 40rem) {
-      font-size: var(--text-4xl);
-      line-height: var(--tw-leading, var(--text-4xl--line-height));
-    }
-  }
   .sm\:text-base {
     @media (width >= 40rem) {
       font-size: var(--text-base);
@@ -1953,6 +2018,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .md\:justify-start {
+    @media (width >= 48rem) {
+      justify-content: flex-start;
+    }
+  }
   .md\:px-8 {
     @media (width >= 48rem) {
       padding-inline: calc(var(--spacing) * 8);
@@ -1966,6 +2036,12 @@
   .md\:text-end {
     @media (width >= 48rem) {
       text-align: end;
+    }
+  }
+  .md\:text-5xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
   .lg\:mt-0 {
@@ -2001,12 +2077,6 @@
   .lg\:text-left {
     @media (width >= 64rem) {
       text-align: left;
-    }
-  }
-  .lg\:text-5xl {
-    @media (width >= 64rem) {
-      font-size: var(--text-5xl);
-      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
 }
@@ -3449,6 +3519,10 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -3475,6 +3549,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-duration: initial;
     }
   }
 }

@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 #[component]
 pub fn NavBar() -> Element {
     rsx! {
-        nav { class: "navbar bg-base-200 shadow-sm",
+        nav { class: "navbar sticky top-0 bg-base-200 shadow-sm z-50",
             div { class: "navbar-start",
                 div { class: "dropdown",
                     div {
@@ -25,7 +25,7 @@ pub fn NavBar() -> Element {
                     }
                     ul {
                         tabindex: "-1",
-                        class: "menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow",
+                        class: "menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold",
                         li {
                             a { href: "#hero", "About" }
                         }
@@ -40,13 +40,15 @@ pub fn NavBar() -> Element {
                         }
                     }
                 }
-                a { class: "btn btn-ghost text-xl",
+                a { class: "btn btn-ghost text-xl font-extrabold",
                     "FN."
                     span { class: "text-primary", "JOE" }
                 }
             }
             div { class: "navbar-center  hidden lg:flex",
-                ul { tabindex: "-1", class: "menu menu-horizontal px-1",
+                ul {
+                    tabindex: "-1",
+                    class: "menu menu-horizontal px-1 font-bold",
                     li {
                         a { href: "#hero", "About" }
                     }

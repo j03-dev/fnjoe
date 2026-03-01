@@ -14,9 +14,13 @@ pub fn Hero() -> Element {
                 loading: "lazy",
             }
             div { class: "mt-8 lg:mt-0 w-full",
-                h1 { class: "text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left font-bold",
-                    "FullStack "
-                    span { class: "text-primary", "Developer" }
+                div { class: "flex justify-center md:justify-start items-center",
+                    span { class: "text-rotate text-3xl md:text-5xl font-bold duration-5000",
+                        span { class: "justify-items-center",
+                            span { class: "text-primary", "Fullstack" }
+                            span { class: "text-secondary", "Developer" }
+                        }
+                    }
                 }
                 p { class: "py-4 md:py-6 text-sm sm:text-base text-center lg:text-left",
                     "Salama! I'm "
